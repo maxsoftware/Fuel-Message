@@ -35,7 +35,7 @@ class Message {
 	 */
 	public static function notice($m)
 	{
-		self::add('notice', $m);
+		self::_add('notice', $m);
 	}
 
 	/**
@@ -45,7 +45,7 @@ class Message {
 	 */
 	public static function error($m)
 	{
-		self::add('error', $m);
+		self::_add('error', $m);
 	}
 
 	/**
@@ -55,7 +55,7 @@ class Message {
 	 */
 	public static function info($m)
 	{
-		self::add('info', $m);
+		self::_add('info', $m);
 	}
 
 	/**
@@ -64,7 +64,7 @@ class Message {
 	 * @param string $type (notice, error, info)
 	 * @param string $message
 	 */
-	protected static function add($type, $message)
+	protected static function _add($type, $message)
 	{
 		self::$_messages->{$type}[] = $message;
 		self::write();
